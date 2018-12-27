@@ -15,8 +15,34 @@
  
 
 # Using getClass() method of object class
+  The Object class contains getClass() method, which returns reference to the Class object for the object. 
 ```
 	Foo foo = new Foo();
 	Class<Foo> classFoo = foo.getClass()
 	
 ```   
+
+# Using Class forName() method
+  Class forName() method is an static method, which loads the class and return reference to that class.
+  Over loaded methods are - 
+  ```
+  Class<?> forName(String className) throws ClassNotFoundException
+  Class<?> forName(String className, boolean initialize, ClassLoader loader) throws ClassNotFoundException
+  Class<?> forName(Module module, String className)
+  ```
+
+  The **forName(String className)** method takes the fully qualified name of the class to be loaded. 
+  It loads the class, initializes it, and returns the reference to its Class object. 
+  If the class is already loaded, it simply returns the reference to the Class object of that class.    
+  
+  The **forName(String className, boolean initialize, ClassLoader loader)** method takes the fully qualified name of the class to be loaded and gives you options -
+  - Initialize or not to initialize the class when it is loaded
+  - And which class loader should load the class.
+  
+  *jdk9*
+  The **forName(Module module, String className)**  method loads the class with the specified className in the specified module without initializing the loaded class. 
+  If the class is not found, the method returns null.
+  
+  
+  
+  
